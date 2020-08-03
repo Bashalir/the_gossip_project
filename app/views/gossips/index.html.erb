@@ -1,0 +1,10 @@
+<h3 class="mt-5 p-5 font-weight-bold">Le Potin n° <%= @gossip.id %></h3>
+<div class="p-5">
+<h5 class="font-weight-bold"><%= @gossip.title %></h5>
+<p><%= @gossip.content %></p>
+<br>
+<span>Écris par <%= link_to @user_name, users_path(@gossip.user) %></span>
+<br>
+<small class="float-right text-muted"><%= @date_gossip %></small>
+</div>
+

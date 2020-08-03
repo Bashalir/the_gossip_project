@@ -14,7 +14,11 @@ PrivateMessage.destroy_all
 Tag.destroy_all
 City.destroy_all
 
-puts 'Destoy all Tables'
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
+puts 'Destoy all Tables and reset primary key'
 
 10.times do
   City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
@@ -23,13 +27,12 @@ end
 puts 'Add 10 Cities'
 
 10.times do
-  name = Faker::Name.first_name
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
   user.description = Faker::Lorem.paragraph(sentence_count: 5)
   user.age = rand(18..50)
-  user.email = Faker::Internet.free_email(name: name)
+  user.email = Faker::Internet.free_email(name: user.first_name)
   user.city = City.all.sample
   user.save
 end

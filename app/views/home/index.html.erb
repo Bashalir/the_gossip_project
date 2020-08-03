@@ -10,8 +10,8 @@
       
     </div>
     <div class="card-subtitle">
-      <%= gossip.user.first_name=%>
-       <%= link_to "Lire le potin", team_path, :class=> "btn btn-primary float-right" %>
+      <%= gossip.user.first_name%>
+      <%= link_to "Lire le potin", gossips_path(gossip.id), :class=> "btn btn-primary float-right"%>
     </div>
    
      </div>
