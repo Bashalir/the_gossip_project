@@ -1,24 +1,32 @@
-# README
+## The Gossip Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Installation
 
-Things you may want to cover:
+Ruby version 2.5.1
+Rails version 5.2.4.3
 
-* Ruby version
+    git clone git@github.com:Bashalir/the_gossip_project.git
+    bundle install
+    rails db:migrate
+    rails db:seed
+    <!-- pour lancer le serveur par default http://localhost:3000 -->
+    rails server
+    <!-- pour tester l'implementation de la BDD -->
+    rails console --sandbox
 
-* System dependencies
+### Le pitch
 
-* Configuration
+Bienvenue dans The Gossip project ! 
 
-* Database creation
+Voici le programme de la semaine :
 
-* Database initialization
+* Aujourd'hui sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins
 
-* How to run the test suite
+* Demain sera consacré à la création d'un potin
 
-* Services (job queues, cache servers, search engines, etc.)
+* Mercredi sera consacré au CRUD complet des potins
 
-* Deployment instructions
+* Jeudi sera consacré aux commentaires des potins, aux likes des potins, et à la gestion d'utilisateurs
 
-* ...
+* Vendredi sera consacré à l'identification des potins
+
