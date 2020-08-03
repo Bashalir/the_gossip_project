@@ -9,10 +9,10 @@ Rails version 5.2.4.3
     bundle install
     rails db:migrate
     rails db:seed
-    <!-- pour lancer le serveur par default http://localhost:3000 -->
+
+    ## pour lancer le serveur par default http://localhost:3000 
     rails server
-    <!-- pour tester l'implementation de la BDD -->
-    rails console --sandbox
+
 
 ### Le pitch
 
