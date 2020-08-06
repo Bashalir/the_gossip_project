@@ -1,20 +1,6 @@
 <div class="mt-5 p-5">
 <h3 class="font-weight-bold">Bienvenue sur The Gossip Project !</h3>
 </div>
-
-<div class="px-5">
-  <% @gossip.each do |gossip| %>
-  <div class="card p-3 m-2">
-    <div class="card-title">
-      <h5 class="font-weight-bold"><%= gossip.title=%></h5>
-      
-    </div>
-    <div class="card-subtitle">
-      <%= gossip.user.first_name%>
-      <%= link_to "Lire le potin", gossips_path(gossip.id), :class=> "btn btn-primary float-right"%>
-    </div>
-   
-     </div>
- <% end %>
+<%= render partial: "gossips/list" %>
  
 </div>
