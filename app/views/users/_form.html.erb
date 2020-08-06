@@ -1,0 +1,39 @@
+
+<% if @user.errors.any? %>
+<div class="px-5 pt-4 alert alert-danger" role="alert">
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      </div>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @user, class: "form-group", local: true do |f| %>
+  <%= f.label :first_name,'Prénom' %>
+  <%= f.text_field :first_name, class: "form-control", placeholder: 'Prénom' %>
+  <br>
+  <%= f.label :last_name,'Nom' %>
+  <%= f.text_field :last_name, class: "form-control", placeholder: 'Nom' %>
+  <br>
+  <%= f.label :email,'Email' %>
+  <%= f.email_field :email, class: "form-control", placeholder: 'Email' %>
+  <br>
+  <%= f.label :description,'Description' %>
+  <%= f.text_area :description, class: "form-control", placeholder: 'Description' %>
+  <br>
+  <%= f.label :age,'Age' %>
+  <%= f.number_field :age, min: 16, max: 99, class: "form-control", placeholder: 'Age' %>
+  <br>
+  <%= f.label :city_id, 'Ville' %>
+  <%= f.select :city_id, @cities, class: "custom-select"%>
+  <br>
+<%= f.label :password,'Mot de passe' %>
+  <%= f.password_field :password, class: "form-control", placeholder: 'Mot de passe' %>
+  <br>
+  <%= f.label :password_confirmation,'Confirmation' %>
+  <%= f.password_field :password_confirmation , class: "form-control" , placeholder: 'Confirme ton mot de passe' %>
+  <br>
+
+  <%= f.submit "Envoyer", class: "btn btn-primary" %>
+<% end %>

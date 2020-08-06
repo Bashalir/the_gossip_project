@@ -6,5 +6,9 @@
 <span>Écris par <%= link_to @user_name, users_path(@gossip.user) %></span>
 <br>
 <small class="float-right text-muted"><%= @date_gossip %></small>
+<br>
+<%= link_to "Met à jour ton potin", edit_gossip_path(@gossip.id), :class=> "btn btn-primary ml-auto"%>
+<%= link_to "Détruire ton potin", gossip_path(@gossip.id), method: "delete", :class=> "btn btn-danger ml-auto"%>
 </div>
 
+<%# <%= render partial: "comments/form", locals: {gossip_id: @gossip.id, comment: @comment} %> 
