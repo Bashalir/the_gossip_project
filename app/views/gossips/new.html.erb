@@ -1,0 +1,21 @@
+<h3 class="mt-5 p-5 font-weight-bold">Balance nous du croustillant !!</h3>
+<div class ="my-5 container">
+<% if @gossip.errors.any? %>
+<div class="px-5 pt-4 alert alert-danger" role="alert">
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      </div>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @gossip, class: "form-group", local: true do |f| %>
+  <%= f.label :title,'Titre' %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Écris un titre accrocheur" %>
+  <br>
+  <%= f.label :content,'Contenu' %>
+  <%= f.text_area :content, class: "form-control", rows: 7, placeholder: "On veux des détails !!!" %>
+  <br>
+  <%= f.submit "Poster", class: "btn btn-primary" %>
+<% end %>

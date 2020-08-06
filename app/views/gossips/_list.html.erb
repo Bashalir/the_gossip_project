@@ -1,0 +1,17 @@
+<div class="px-5">
+
+  <% @gossips.each do |gossip| %>
+  <div class="card p-3 m-2">
+    <div class="card-title">
+      <h5 class="font-weight-bold"><%= gossip.title=%></h5>
+      
+    </div>
+    <div class="card-subtitle">
+      <%= gossip.user.first_name%>
+
+      
+      <%= link_to "Lire le potin", gossip_path(gossip.id), :class=> "btn btn-primary float-right"%>
+    </div>
+   
+     </div>
+ <% end %>
