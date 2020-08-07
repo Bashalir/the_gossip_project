@@ -26,13 +26,14 @@
   <%= f.number_field :age, min: 16, max: 99, class: "form-control", placeholder: 'Age' %>
   <br>
   <%= f.label :city_id, 'Ville' %>
-  <%= f.select :city_id, @cities, class: "custom-select"%>
+  <%= f.select :city_id, @cities,{}, class: "custom-select"%>
   <br>
-<%= f.label :password,'Mot de passe' %>
+   <br>
+  <%= f.label :password,'Mot de passe' %>
   <%= f.password_field :password, class: "form-control", placeholder: 'Mot de passe' %>
   <br>
   <%= f.label :password_confirmation,'Confirmation' %>
-  <%= f.password_field :password_confirmation , class: "form-control" , placeholder: 'Confirme ton mot de passe' %>
+  <%= f.password_field :password_confirmation , class: "form-control" , placeholder: 'Confirmer le mot de passe' %>
   <br>
 
   <%= f.submit "Envoyer", class: "btn btn-primary" %>

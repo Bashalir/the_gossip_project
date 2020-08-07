@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :sessions, only: %i[destroy new create]
+  resources :gossips do
+    resources :comments
+  end
   resources :cities
   resources :users
   root to: 'home#index'
-  resources :gossips
+
   get '/', to: 'home#index'
   get '/team', to: 'team#index'
   get '/contact', to: 'contact#index'

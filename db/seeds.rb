@@ -30,6 +30,7 @@ puts 'Add 10 Cities'
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
+  user.password = 'thptest'
   user.description = Faker::Lorem.paragraph(sentence_count: 5)
   user.age = rand(18..50)
   user.email = Faker::Internet.free_email(name: user.first_name)

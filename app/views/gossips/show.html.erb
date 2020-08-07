@@ -7,8 +7,12 @@
 <br>
 <small class="float-right text-muted"><%= @date_gossip %></small>
 <br>
-<%= link_to "Met à jour ton potin", edit_gossip_path(@gossip.id), :class=> "btn btn-primary ml-auto"%>
-<%= link_to "Détruire ton potin", gossip_path(@gossip.id), method: "delete", :class=> "btn btn-danger ml-auto"%>
+<% if logged_in? %>
+  <% if current_user.id == @gossip.user_id %>
+  <%= link_to "Met à jour ton potin", edit_gossip_path(@gossip.id), :class=> "btn btn-primary ml-auto"%>
+  <%= link_to "Détruire ton potin", gossip_path(@gossip.id), method: "delete", :class=> "btn btn-danger ml-auto"%>
+  <% end %>
+<% end %>
 </div>
 
 <%# <%= render partial: "comments/form", locals: {gossip_id: @gossip.id, comment: @comment} %> 

@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: %i[new create edit update destroy]
+
   def index
     @gossips = Gossip.all
   end
@@ -16,7 +18,7 @@ class GossipsController < ApplicationController
 
   def create
     @gossip = Gossip.new(gossip_params)
-
+    @gossip.user_id = current_user.id
     if @gossip.save
       redirect_to controller: 'home', action: 'index', notice: 'gossip_saved'
     else
@@ -32,10 +34,12 @@ class GossipsController < ApplicationController
 
   def destroy
     @gossip = Gossip.find(params[:id])
-    @gossip.destroy
-    respond_to do |format|
-      format.html { redirect_to controller: 'home', action: 'index', notice: 'Le potin a bien été détruit à jamais.' }
-      format.json { head :no_content }
+    if @gossip.user.id != current_user.id
+      flash[:error] = 'Vous etes pas autorisé à le supprimer!'
+      redirect_to gossips_path
+    else
+      @gossip.destroy
+      redirect_to gossips_path
     end
   end
 
@@ -45,6 +49,13 @@ class GossipsController < ApplicationController
       redirect_to @gossip
     else
       render :edit
+    end
+  end
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = 'Merci de vous identifier.'
+      redirect_to new_session_path
     end
   end
 

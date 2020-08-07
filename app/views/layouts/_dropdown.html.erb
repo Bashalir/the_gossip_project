@@ -1,0 +1,21 @@
+      
+      <% if logged_in? %>
+      <div class="dropdown">
+        <button class="ml-3 btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.first_name %>
+        </button>
+        <div class="ml-3 dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <%= link_to "Se déconnecter", session_path(session.id), method: :delete, :class=> "dropdown-item"%>
+        </div>
+      </div>
+      <% else %>
+      <div class="dropdown">
+        <button class="ml-3 btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          S'inscrire / Se connecter
+        </button>
+        <div class="ml-3 dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Se connecter", new_session_path, :class=> "dropdown-item"%>
+          <%= link_to "S'inscrire", new_user_path, :class=> "dropdown-item"%>
+        </div>
+      </div>
+      <% end %>
