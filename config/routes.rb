@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: %i[destroy new create]
+  resources :likes, only: %i[destroy create]
   resources :gossips do
     resources :comments
   end
