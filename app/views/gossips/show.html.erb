@@ -3,7 +3,7 @@
 <h5 class="font-weight-bold"><%= @gossip.title %></h5>
 <p><%= @gossip.content %></p>
 <br>
-<span>Écris par <%= link_to @user_name, users_path(@gossip.user) %></span>
+<span>Écris par <%= link_to @user_name, user_path(@gossip.user) %></span>
 <br>
 <small class="float-right text-muted"><%= @date_gossip %></small>
 <br>

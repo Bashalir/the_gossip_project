@@ -7,12 +7,21 @@ Rails version 5.2.4.3
 
     git clone git@github.com:Bashalir/the_gossip_project.git
     bundle install
-    rails db:migrate
+    rails db:migrate:reset
     rails db:seed
 
     ## pour lancer le serveur par default http://localhost:3000 
-    rails server
+    rails s
 
+
+Utilisateur de test 
+
+    email: js@gof.com
+    mdp: thptest
+
+Tous les autres utlisateurs ont le même mot de passe
+
+    mdp: thptest
 
 ### Le pitch
 

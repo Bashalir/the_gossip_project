@@ -26,6 +26,9 @@ end
 
 puts 'Add 10 Cities'
 
+User.create(first_name: "John", last_name: "Snow", description: "The global warming is here...", email: "js@gof.com", age: 23, city_id: 1, password: "thptest") 
+puts 'Add Test User'
+
 10.times do
   user = User.new
   user.first_name = Faker::Name.first_name
