@@ -29,9 +29,9 @@ Bienvenue dans The Gossip project !
 
 Voici le programme de la semaine :
 
-* Aujourd'hui sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins
+* Lundi sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins
 
-* Demain sera consacré à la création d'un potin
+* Mardi sera consacré à la création d'un potin
 
 * Mercredi sera consacré au CRUD complet des potins
 
